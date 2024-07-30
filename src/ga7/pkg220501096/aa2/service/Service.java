@@ -1,6 +1,8 @@
 
 package ga7.pkg220501096.aa2.service;
 
+import ga7.pkg220501096.aa2.controller.MyConnection;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,9 +11,33 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 
 import ga7.pkg220501096.aa2.model.User;
+import java.util.ArrayList;
+import java.util.List;
+
 
 
 public class Service {
+    
+    private Connection connection = MyConnection.connect();
+    
+    public List<User> getAllUsers() throws SQLException {
+        
+        String sql = "SELECT * FROM users";
+        List<User> userList = new ArrayList<>();
+        
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Long userId = rs.getLong("user_id");
+                String username = rs.getString("username");
+                String publicKey = rs.getString("public_key");
+                
+                userList.add(new User(userId, username, publicKey));
+            }
+        }
+        return userList;
+    }
+    
     
     public static void createUser(Connection conn, User user) throws SQLException {
         String sql = "INSERT INTO users (username, password_hash, public_key) VALUES (?, ?, ?)";
@@ -66,14 +92,6 @@ public class Service {
         }
     }
 
-    public static void printAllUsers(Connection conn) throws SQLException {
-        String sql = "SELECT * FROM users";
-        try (Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                System.out.println("ID: " + rs.getLong("user_id") + ", Username: " + rs.getString("username") + ", PasswordHash: " + rs.getString("password_hash") + ", PublicKey: " + rs.getString("public_key") + ", CreatedAt: " + rs.getTimestamp("created_at"));
-            }
-        }
-    }
+
     
 }

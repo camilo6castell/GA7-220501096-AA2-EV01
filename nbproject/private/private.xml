@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/r4d3o/Documents/ga7-220501096-aa2/src/ga7/pkg220501096/aa2/controller/MyConnection.java</file>
-            <file>file:/home/r4d3o/Documents/ga7-220501096-aa2/src/ga7/pkg220501096/aa2/Ga7220501096Aa2.java</file>
+            <file>file:/home/r4d3o/Downloads/ga7-220501096-aa2/src/ga7/pkg220501096/aa2/service/Service.java</file>
+            <file>file:/home/r4d3o/Downloads/ga7-220501096-aa2/src/ga7/pkg220501096/aa2/controller/MyConnection.java</file>
+            <file>file:/home/r4d3o/Downloads/ga7-220501096-aa2/src/ga7/pkg220501096/aa2/view/ContactsView.java</file>
+            <file>file:/home/r4d3o/Downloads/ga7-220501096-aa2/src/ga7/pkg220501096/aa2/Ga7220501096Aa2.java</file>
+            <file>file:/home/r4d3o/Downloads/ga7-220501096-aa2/src/ga7/pkg220501096/aa2/model/User.java</file>
         </group>
     </open-files>
 </project-private>

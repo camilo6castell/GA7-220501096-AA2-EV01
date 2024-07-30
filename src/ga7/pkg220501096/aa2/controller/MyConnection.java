@@ -12,8 +12,8 @@ public class MyConnection {
         String host = "127.0.0.1";
         String port = "3306";
         String db = "cryptomessage";
-        String user = "user";
-        String pass = "pass";
+        String user = "r4d3o";
+        String pass = "r4d3o";
 
         String url = sjdbc + "://" + host + ":" + port + "/" + db;
 

@@ -11,6 +11,18 @@ public class User {
     private String passwordHash;
     private String publicKey;
     private Timestamp createdAt = new Timestamp(System.currentTimeMillis());
+    
+    // Constructor
+
+    public User() {
+    }
+    
+
+    public User(Long userId, String username, String publicKey) {
+        this.userId = userId;
+        this.username = username;
+        this.publicKey = publicKey;
+    }
 
     // Getters and setters
 
