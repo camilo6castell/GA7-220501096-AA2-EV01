@@ -16,8 +16,8 @@ import javax.swing.JOptionPane;
  * @author r4d3o
  */
 public class ContactsView extends javax.swing.JFrame {
-    
-    private final Service service = new Service();   
+
+    private final Service service = new Service();
 
     /**
      * Creates new form ContactsView
@@ -35,6 +35,14 @@ public class ContactsView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        HelperDialog = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        DialogTitleJLabel = new javax.swing.JLabel();
+        UsernameJLabel = new javax.swing.JLabel();
+        usernameTextField = new javax.swing.JTextField();
+        PublicKeyJlabel = new javax.swing.JLabel();
+        publicKeyTextField = new javax.swing.JTextField();
+        SaveContactDialogButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -42,8 +50,79 @@ public class ContactsView extends javax.swing.JFrame {
         contactsJList = new javax.swing.JList<>();
         CreateJButton = new javax.swing.JButton();
         readAllContactsJButton = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        UpdateContactjButton = new javax.swing.JButton();
+        DeleteContactJButton = new javax.swing.JButton();
+
+        HelperDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        HelperDialog.setBackground(new java.awt.Color(51, 204, 255));
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+
+        DialogTitleJLabel.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        DialogTitleJLabel.setText("test text");
+
+        UsernameJLabel.setText("Nombre");
+
+        PublicKeyJlabel.setText("Public Key");
+
+        SaveContactDialogButton.setText("Guardar");
+        SaveContactDialogButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveContactDialogButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(UsernameJLabel)
+                            .addComponent(PublicKeyJlabel))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(publicKeyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(SaveContactDialogButton))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(DialogTitleJLabel)))
+                .addContainerGap(81, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addComponent(DialogTitleJLabel)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UsernameJLabel)
+                    .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PublicKeyJlabel)
+                    .addComponent(publicKeyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(SaveContactDialogButton)
+                .addGap(36, 36, 36))
+        );
+
+        javax.swing.GroupLayout HelperDialogLayout = new javax.swing.GroupLayout(HelperDialog.getContentPane());
+        HelperDialog.getContentPane().setLayout(HelperDialogLayout);
+        HelperDialogLayout.setHorizontalGroup(
+            HelperDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        HelperDialogLayout.setVerticalGroup(
+            HelperDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,14 +133,16 @@ public class ContactsView extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CryptoMessage");
 
-        jLabel2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("sansserif", 2, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("Contacts");
 
         contactsJList.setBackground(new java.awt.Color(41, 41, 41));
-        contactsJList.setForeground(new java.awt.Color(255, 255, 255));
+        contactsJList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
+        contactsJList.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        contactsJList.setForeground(new java.awt.Color(204, 204, 204));
         contactsJList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "¡Debes cargar la lista de los contactos primero!" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -81,17 +162,17 @@ public class ContactsView extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Update contact");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        UpdateContactjButton.setText("Update contact");
+        UpdateContactjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                UpdateContactjButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Delete Contact");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        DeleteContactJButton.setText("Delete Contact");
+        DeleteContactJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                DeleteContactJButtonActionPerformed(evt);
             }
         });
 
@@ -100,20 +181,21 @@ public class ContactsView extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(UpdateContactjButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(readAllContactsJButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CreateJButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DeleteContactJButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(24, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(readAllContactsJButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CreateJButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(216, 216, 216))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,17 +204,17 @@ public class ContactsView extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(CreateJButton)
                 .addGap(18, 18, 18)
                 .addComponent(readAllContactsJButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(UpdateContactjButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addComponent(DeleteContactJButton)
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,7 +242,10 @@ public class ContactsView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CreateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateJButtonActionPerformed
-        // TODO add your handling code here:
+        HelperDialog.pack();
+        DialogTitleJLabel.setText("Agregar contacto");
+        HelperDialog.setLocationRelativeTo(this);
+        HelperDialog.setVisible(true);
     }//GEN-LAST:event_CreateJButtonActionPerformed
 
     private void readAllContactsJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readAllContactsJButtonActionPerformed
@@ -169,32 +254,203 @@ public class ContactsView extends javax.swing.JFrame {
 
             DefaultListModel<String> listModel = new DefaultListModel<>();
 
-            for(User user : users) {
+            for (User user : users) {
                 listModel.addElement(
-                    user.getUserId() + ": " +
-                    user.getUsername() + " [ " +
-                    user.getPublicKey() + " ]");
+                        user.getUserId() + ": "
+                        + user.getUsername() + " [ "
+                        + user.getPublicKey() + " ]");
             }
 
             contactsJList.setModel(listModel);
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(
-                this,
-                "Error recuperando contactos: " + e.getMessage(),
-                " Error ",
-                JOptionPane.ERROR_MESSAGE
+                    this,
+                    "Error recuperando contactos: " + e.getMessage(),
+                    " Error ",
+                    JOptionPane.ERROR_MESSAGE
             );
         }
     }//GEN-LAST:event_readAllContactsJButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void UpdateContactjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateContactjButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        int selectedIndex = contactsJList.getSelectedIndex();
+
+        if (selectedIndex != -1) {
+            String selectedValue = contactsJList.getSelectedValue();
+
+            if (selectedValue == "¡Debes cargar la lista de los contactos primero!") {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Primero debes cargar la lista de contactos!",
+                        "Valor no permitido",
+                        64
+                );
+                return;
+            };
+
+            String[] parts = selectedValue.split(":");
+            String userInfo = parts[1].trim();
+            String username = userInfo.substring(0, userInfo.indexOf(" [ ")).trim();
+            String publicKey = userInfo.substring(userInfo.indexOf("[ ") + 2, userInfo.indexOf(" ]")).trim();
+
+            DialogTitleJLabel.setText("Actualizar Contacto");
+            usernameTextField.setText(username);
+            publicKeyTextField.setText(publicKey);
+
+            HelperDialog.pack();
+            HelperDialog.setLocationRelativeTo(this);
+            HelperDialog.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Debes cargar los usuarios y luego seleccionar a uno de la lista",
+                    "Error",
+                    64
+            );
+        }
+    }//GEN-LAST:event_UpdateContactjButtonActionPerformed
+
+    private void DeleteContactJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteContactJButtonActionPerformed
+        int selectedIndex = contactsJList.getSelectedIndex();
+
+        if (selectedIndex != -1) {
+            String selectedValue = contactsJList.getSelectedValue();
+
+            if (selectedValue == "¡Debes cargar la lista de los contactos primero!") {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Primero debes cargar la lista de contactos!",
+                        "Valor no permitido",
+                        64
+                );
+                return;
+            };
+
+            String[] parts = selectedValue.split(":");
+
+            try {
+
+                service.deleteUser(Long.parseLong(parts[0].trim()));
+
+            } catch (SQLException e) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Error al guardar en la base de datos: " + e.getMessage(),
+                        "Error",
+                        64
+                );
+            }
+
+            // UPDATING CONTACT LIST
+            
+            try {
+                List<User> users = service.getAllUsers();
+
+                DefaultListModel<String> listModel = new DefaultListModel<>();
+
+                for (User user : users) {
+                    listModel.addElement(
+                            user.getUserId() + ": "
+                            + user.getUsername() + " [ "
+                            + user.getPublicKey() + " ]");
+                }
+
+                contactsJList.setModel(listModel);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Error recuperando contactos: " + e.getMessage(),
+                        " Error ",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+            
+            // END
+            
+            JOptionPane.showMessageDialog(
+                        this,
+                        "Contacto eliminado"        
+            );
+
+        } else {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Debes cargar los usuarios y luego seleccionar a uno de la lista",
+                    "Error",
+                    64
+            );
+        }
+    }//GEN-LAST:event_DeleteContactJButtonActionPerformed
+
+    private void SaveContactDialogButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveContactDialogButtonActionPerformed
+        if (DialogTitleJLabel.getText().equals("Agregar contacto")) {
+            if (usernameTextField.getText().equals("") || publicKeyTextField.getText().equals("")) {
+                JOptionPane.showMessageDialog(HelperDialog,
+                        "Los anteriores campos son obligatorios para agregar el contacto. 0"
+                );
+            }
+            try {
+
+                JOptionPane.showMessageDialog(HelperDialog,
+                        service.createUser(
+                                usernameTextField.getText(),
+                                publicKeyTextField.getText()
+                        )
+                );
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(HelperDialog,
+                        e.getMessage()
+                );
+            }
+
+            usernameTextField.setText("");
+            publicKeyTextField.setText("");
+
+            HelperDialog.setVisible(false);
+        } else {
+            if (usernameTextField.getText().equals("") || publicKeyTextField.getText().equals("")) {
+                JOptionPane.showMessageDialog(HelperDialog,
+                        "Los anteriores campos son obligatorios para agregar el contacto. 1"
+                );
+            } else {
+                String selectedValue = contactsJList.getSelectedValue();
+                String[] parts = selectedValue.split(":");
+                Long userId = Long.parseLong(parts[0].trim());
+
+                try {
+                    service.updateUser(
+                            new User(
+                                    userId,
+                                    usernameTextField.getText(),
+                                    publicKeyTextField.getText()
+                            )
+                    );
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Contacto actualizado con éxito"
+                    );
+
+                    HelperDialog.dispose();
+
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Ha ocurrido un error con la base de datos",
+                            "Error",
+                            64
+                    );
+                }
+
+            }
+
+        }
+    }//GEN-LAST:event_SaveContactDialogButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,13 +489,21 @@ public class ContactsView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CreateJButton;
+    private javax.swing.JButton DeleteContactJButton;
+    private javax.swing.JLabel DialogTitleJLabel;
+    private javax.swing.JDialog HelperDialog;
+    private javax.swing.JLabel PublicKeyJlabel;
+    private javax.swing.JButton SaveContactDialogButton;
+    private javax.swing.JButton UpdateContactjButton;
+    private javax.swing.JLabel UsernameJLabel;
     private javax.swing.JList<String> contactsJList;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField publicKeyTextField;
     private javax.swing.JButton readAllContactsJButton;
+    private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
 }

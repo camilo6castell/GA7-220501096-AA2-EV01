@@ -15,8 +15,7 @@ public class User {
     // Constructor
 
     public User() {
-    }
-    
+    }   
 
     public User(Long userId, String username, String publicKey) {
         this.userId = userId;
